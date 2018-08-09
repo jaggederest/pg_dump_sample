@@ -130,9 +130,11 @@ func (m *ManifestIterator) Next() (*ManifestItem, error) {
 		if !is_todo && !is_done {
 			// A new dependency table not present in the manifest file was
 			// found, create a default entry for it
+			fmt.Fprintf(os.Stderr, "Adding missing table: %v\n", dep)
 			m.todo[dep] = ManifestItem{Table: dep}
 		}
 		if _, ok := m.todo[dep]; ok && table != dep {
+			fmt.Fprintf(os.Stderr, "Adding missing table: %v\n", dep)
 			todoDeps = append(todoDeps, dep)
 		}
 	}
