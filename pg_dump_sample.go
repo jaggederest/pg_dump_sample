@@ -179,7 +179,7 @@ func parseArgs() (*Options, error) {
 
 	if len(args) < 1 {
 		parser.WriteHelp(os.Stderr)
-		return nil, fmt.Errorf("required argument `database` not specified")
+		return nil, fmt.Errorf("required argument `database` not specified.")
 	}
 
 	if len(args) > 1 {
